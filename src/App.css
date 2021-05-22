@@ -1,9 +1,11 @@
 .app {
   text-align: center;
+  position: relative;
+  min-height: 100vh;
 }
 
 .app-logo {
-  height: 7vmin;
+  height: 30;
   pointer-events: none;
 }
 
@@ -26,4 +28,15 @@ ul.no-bullets {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
+}
+
+.content-container {
+  padding-bottom: 2.5rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }
