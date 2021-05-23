@@ -1,29 +1,21 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import { Navbar } from "react-bootstrap";
 import Home from "components/Home";
+import Songs from "components/Songs";
+import { Route, Switch } from "react-router-dom";
+import Navigation from "components/Navigation";
 
 function App() {
   return (
     <div className="app">
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/home">
-          <img
-            alt=""
-            src={logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top app-logo"
-          />{" "}
-          Rock Band 4 Song Library
-        </Navbar.Brand>
-      </Navbar>
+      <Navigation />
+      <Switch>
+        <Route path="/songs" component={Songs} />
+        <Route path="/" component={Home} />
+      </Switch>
       <br />
-      <div className="content-container">
-        <Home />
-      </div>
+      <div className="content-container"></div>
       <footer>Built with 💚 by Max Grayer</footer>
     </div>
   );
