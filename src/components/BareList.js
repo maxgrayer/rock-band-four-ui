@@ -1,4 +1,5 @@
 import React from "react";
+import SongItem from "./SongItem";
 const BareList = (props) => {
   const { songs } = props;
   if (!songs || songs.length === 0) return <p>No songs, sorry!</p>;
@@ -6,12 +7,7 @@ const BareList = (props) => {
     <ul className="no-bullets">
       <h2 className="list-head">Complete Song Library</h2>
       {songs.map((song) => {
-        return (
-          <li key={song.id} className="list">
-            <span className="repo-text">{song.artist} - </span>
-            <span className="repo-description">{song.title}</span>
-          </li>
-        );
+        return <SongItem key={song.id} {...song} />;
       })}
     </ul>
   );
