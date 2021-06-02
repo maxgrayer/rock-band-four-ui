@@ -9,7 +9,7 @@ const SongItem = (song) => {
       <span className="song-title">{song.title}</span>
       <span className="song-length">
         {" "}
-        ({stringLengthFromMillis(song.length)})
+        ({stringLengthFromMillis(song.duration)})
       </span>
     </li>
   );
