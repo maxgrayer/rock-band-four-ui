@@ -1,28 +1,18 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-const SongItem = (song) => {
+import { Card } from "react-bootstrap";
+const SongDetails = (props) => {
+  let song = props.location.state.song;
   if (!song) {
     return null;
   }
   return (
-    <Card style={{ width: "12rem" }}>
-      <Card.Img variant="top" src={song.awsArtworkLink} />
+    <Card>
       <Card.Body>
         <Card.Title>{song.artist}</Card.Title>
         <Card.Text>
           {song.title}
           <br />({stringLengthFromMillis(song.duration)})
         </Card.Text>
-        <Link
-          to={{
-            pathname: "song-details",
-            state: { song: song },
-          }}
-        >
-          <Button variant="primary">Details</Button>
-        </Link>
       </Card.Body>
     </Card>
   );
@@ -37,4 +27,4 @@ function stringLengthFromMillis(millis) {
   var ss = date.getSeconds().toString();
   return mm + ":" + ss.padStart(2, "0");
 }
-export default SongItem;
+export default SongDetails;

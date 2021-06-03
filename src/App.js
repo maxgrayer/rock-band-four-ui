@@ -7,6 +7,7 @@ import Songs from "components/Songs";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Navigation from "components/Navigation";
 import AppFooter from "components/AppFooter";
+import SongDetails from "components/SongDetails";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           </Route>
           <Route path="/admin" component={Admin} />
           <Route path="/songs" component={Songs} />
+          <Route path="/song-details" component={SongDetails} />
           <Route path="/home" component={Home} />
         </div>
       </Switch>
