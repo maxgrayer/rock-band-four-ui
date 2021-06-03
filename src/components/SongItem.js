@@ -1,17 +1,21 @@
 import React from "react";
+import { Button, Card } from "react-bootstrap";
 const SongItem = (song) => {
   if (!song) {
     return null;
   }
   return (
-    <li className="list">
-      <span className="song-artist">{song.artist} - </span>
-      <span className="song-title">{song.title}</span>
-      <span className="song-length">
-        {" "}
-        ({stringLengthFromMillis(song.duration)})
-      </span>
-    </li>
+    <Card style={{ width: "12rem" }}>
+      <Card.Img variant="top" src={song.awsArtworkLink} />
+      <Card.Body>
+        <Card.Title>{song.artist}</Card.Title>
+        <Card.Text>
+          {song.title}
+          <br />({stringLengthFromMillis(song.duration)})
+        </Card.Text>
+        <Button variant="primary">Details</Button>
+      </Card.Body>
+    </Card>
   );
 };
 

@@ -9,6 +9,12 @@
   pointer-events: none;
 }
 
+.content-container {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+  padding-left: 1rem;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .app-logo {
     animation: app-logo-spin infinite 20s linear;
@@ -22,21 +28,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-ul.no-bullets {
-  list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margins */
-}
-
-.content-container {
-  padding-bottom: 2.5rem;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
 }
