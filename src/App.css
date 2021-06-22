@@ -15,6 +15,16 @@
   padding-left: 1rem;
 }
 
+.card-header,
+.card-title {
+  min-height: 4.1rem;
+}
+
+.song-results {
+  padding-top: 1.25rem;
+  padding-right: 1rem;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .app-logo {
     animation: app-logo-spin infinite 20s linear;

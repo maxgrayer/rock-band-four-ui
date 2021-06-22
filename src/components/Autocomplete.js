@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CardDeck } from "react-bootstrap";
+import { CardGroup } from "react-bootstrap";
 import SongItem from "./SongItem";
 
 const Autocomplete = (props) => {
@@ -85,13 +85,13 @@ const Autocomplete = (props) => {
       {state.displayItems &&
       state.inputValue.length &&
       state.filteredItems.length ? (
-        <CardDeck>
+        <CardGroup className="song-results">
           {state.filteredItems
             .map((optionSong) => {
               return <SongItem key={optionSong.id} {...optionSong} />;
             })
             .slice(0, 10)}
-        </CardDeck>
+        </CardGroup>
       ) : null}
     </div>
   );

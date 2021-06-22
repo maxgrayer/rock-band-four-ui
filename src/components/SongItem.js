@@ -1,5 +1,6 @@
+import cover from "../cover.png";
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const SongItem = (song) => {
@@ -7,14 +8,17 @@ const SongItem = (song) => {
     return null;
   }
   return (
-    <Card style={{ width: "12rem" }}>
-      <Card.Img variant="top" src={song.awsArtworkLink} />
+    <Card className="text-center">
+      <Card.Header as="h5">{song.artist}</Card.Header>
+      <Card.Img
+        variant="top"
+        src={!!song.awsArtworkLink ? song.awsArtworkLink : cover}
+        alt={song.album}
+        onError={addDefaultSrc}
+      />
       <Card.Body>
-        <Card.Title>{song.artist}</Card.Title>
-        <Card.Text>
-          {song.title}
-          <br />({stringLengthFromMillis(song.duration)})
-        </Card.Text>
+        <Card.Title>{song.title}</Card.Title>
+        <Card.Text>({stringLengthFromMillis(song.duration)})</Card.Text>
         <Link
           to={{
             pathname: "song-details",
@@ -24,9 +28,20 @@ const SongItem = (song) => {
           <Button variant="primary">Details</Button>
         </Link>
       </Card.Body>
+      <Card.Footer className="text-muted">
+        {song.owned
+          ? "In Library"
+          : song.onWishlist
+          ? "On Wishlist"
+          : "Purchase"}
+      </Card.Footer>
     </Card>
   );
 };
+
+function addDefaultSrc(event) {
+  event.target.src = cover;
+}
 
 function stringLengthFromMillis(millis) {
   if (millis === -1) {
