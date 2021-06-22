@@ -85,13 +85,16 @@ const Autocomplete = (props) => {
       {state.displayItems &&
       state.inputValue.length &&
       state.filteredItems.length ? (
-        <CardGroup className="song-results">
-          {state.filteredItems
-            .map((optionSong) => {
-              return <SongItem key={optionSong.id} {...optionSong} />;
-            })
-            .slice(0, 10)}
-        </CardGroup>
+        <div>
+          <div>Results Count: {state.filteredItems.length}</div>
+          <CardGroup className="song-results">
+            {state.filteredItems
+              .map((optionSong) => {
+                return <SongItem key={optionSong.id} {...optionSong} />;
+              })
+              .slice(0, 10)}
+          </CardGroup>
+        </div>
       ) : null}
     </div>
   );
