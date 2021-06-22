@@ -29,15 +29,6 @@ const Autocomplete = (props) => {
     });
   };
 
-  const handleClick = (e) => {
-    setState({
-      activeItem: 0,
-      filteredItems: [],
-      displayItems: false,
-      inputValue: e.currentTarget.innerText,
-    });
-  };
-
   const handleKeyDown = (e) => {
     const { activeItem, filteredItems } = state;
 
@@ -97,13 +88,7 @@ const Autocomplete = (props) => {
         <CardDeck>
           {state.filteredItems
             .map((optionSong) => {
-              return (
-                <SongItem
-                  key={optionSong.id}
-                  {...optionSong}
-                  onClick={handleClick}
-                />
-              );
+              return <SongItem key={optionSong.id} {...optionSong} />;
             })
             .slice(0, 10)}
         </CardDeck>
