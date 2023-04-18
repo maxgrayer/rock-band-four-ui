@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CardGroup } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import SongItem from "./SongItem";
 
 const Autocomplete = (props) => {
@@ -15,10 +15,9 @@ const Autocomplete = (props) => {
   const handleChange = (e) => {
     const inputValue = e.currentTarget.value;
     const filteredItems = items.filter(
-      (optionSong) =>
-        optionSong.artist.toLowerCase().indexOf(inputValue.toLowerCase()) >
-          -1 ||
-        optionSong.title.toLowerCase().indexOf(inputValue.toLowerCase()) > -1
+      (option) =>
+        option.artist.toLowerCase().indexOf(inputValue.toLowerCase()) > -1 ||
+        option.title.toLowerCase().indexOf(inputValue.toLowerCase()) > -1
     );
 
     setState({
@@ -87,13 +86,17 @@ const Autocomplete = (props) => {
       state.filteredItems.length ? (
         <div>
           <div>Results Count: {state.filteredItems.length}</div>
-          <CardGroup className="song-results">
+          <Row xs="auto" className="g-4 song-results">
             {state.filteredItems
               .map((optionSong) => {
-                return <SongItem key={optionSong.id} {...optionSong} />;
+                return (
+                  <Col>
+                    <SongItem key={optionSong.id} {...optionSong} />
+                  </Col>
+                );
               })
-              .slice(0, 10)}
-          </CardGroup>
+              .slice(0, 14)}
+          </Row>
         </div>
       ) : null}
     </div>

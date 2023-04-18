@@ -7,17 +7,23 @@ const SongItem = (song) => {
   if (!song) {
     return null;
   }
+
+  const imageUrl = `https://rb4.app/getImage?filename=${song.shortName}&width=300&height=300&format=png`;
+
   return (
-    <Card className="text-center">
-      <Card.Header as="h5">{song.artist}</Card.Header>
+    <Card className="song-item">
+      <Card.Header as="h5" className="wrap-text">
+        {song.artist}
+      </Card.Header>
       <Card.Img
         variant="top"
-        src={!!song.awsArtworkLink ? song.awsArtworkLink : cover}
+        src={imageUrl}
         alt={song.album}
         onError={addDefaultSrc}
       />
       <Card.Body>
-        <Card.Title>{song.title}</Card.Title>
+        <Card.Title className="wrap-text">{song.title}</Card.Title>
+        <Card.Text style={{ fontStyle: "italic" }}>{song.album}</Card.Text>
         <Card.Text>({stringLengthFromMillis(song.duration)})</Card.Text>
         <Link
           to={{
