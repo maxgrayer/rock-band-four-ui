@@ -29,6 +29,10 @@
   width: 12rem;
 }
 
+.song-details {
+  width: 30rem;
+}
+
 .wrap-text {
   overflow: hidden;
   text-overflow: ellipsis;

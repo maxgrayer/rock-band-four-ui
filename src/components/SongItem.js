@@ -35,11 +35,13 @@ const SongItem = (song) => {
         </Link>
       </Card.Body>
       <Card.Footer className="text-muted">
-        {song.isOwned
-          ? "In Library"
-          : song.onWishlist
-          ? "On Wishlist"
-          : "Purchase"}
+        {song.isOwned ? (
+          "In Library"
+        ) : (
+          <a href={song.xboxStoreLink} target="_blank" rel="noreferrer">
+            {song.onWishlist ? "On Wishlist" : "Purchase"}
+          </a>
+        )}
       </Card.Footer>
     </Card>
   );
