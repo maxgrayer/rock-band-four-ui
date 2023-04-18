@@ -29,7 +29,7 @@ const SongItem = (song) => {
         </Link>
       </Card.Body>
       <Card.Footer className="text-muted">
-        {song.owned
+        {song.isOwned
           ? "In Library"
           : song.onWishlist
           ? "On Wishlist"

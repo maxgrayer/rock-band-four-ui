@@ -11,9 +11,12 @@ function Songs() {
     songs: null,
   });
 
+  const dotnetApiUrl = "http://localhost:5263/song/";
+  //const springApiUrl = "http://localhost:8080/songs/";
+
   useEffect(() => {
     setAppState({ loading: true, errorMessage: null, songs: null });
-    const apiUrl = "http://localhost:8080/songs/";
+    const apiUrl = dotnetApiUrl;
     axios
       .get(apiUrl, {
         timeout: 5000,
